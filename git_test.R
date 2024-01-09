@@ -3,17 +3,18 @@ get_yesterday <- function(){
   return(Sys.Date() - 1)
 }
 
-gitcreds::gitcreds_set()
-
+# alternative method
+#gitcreds::gitcreds_set()
 
 library(usethis)
 
-# Add PAT to enviro file and save
+# add PAT to enviro file (GITHUB_PAT = "xxxxxxxxxxxxxxxxxxx") and save file
 edit_r_environ()
 
-# Restart R
+# restart R
 
-# Reload usethis library
+# reload usethis package
 library(usethis)
 
+# pushes this project to github
 use_github(protocol = "https", auth_token = Sys.getenv("GITHUB_PAT"))
